@@ -20,7 +20,7 @@ export interface ButtonVariant {
 const buttonPrimary: ButtonVariant = {
   enabled: {
     button: {
-      backgroundColor: "#1D013F",
+      backgroundColor: "#550AB1",
     },
     title: {
       color: "#FFF",
@@ -46,13 +46,13 @@ const buttonOutline: ButtonVariant = {
     button: {
       backgroundColor: "transparent",
       borderWidth: 2,
-      borderColor: "#1D013F",
+      borderColor: "#550AB1",
     },
     title: {
-      color: "#1D013F",
+      color: "#550AB1",
     },
     icon: {
-      color: "#1D013F",
+      color: "#550AB1",
     },
   },
   disabled: {
