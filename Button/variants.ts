@@ -70,7 +70,25 @@ const buttonOutline: ButtonVariant = {
   },
 };
 
+export const buttonBlackFriday: ButtonVariant = {
+  enabled: {
+    button: {
+      backgroundColor: "#100C08",
+    },
+    title: { color: "#fbb605" },
+    icon: { color: "#fbb605" },
+  },
+  disabled: {
+    button: {
+      backgroundColor: "#B8B8B8",
+    },
+    title: { color: "#FFF" },
+    icon: { color: "#FFF" },
+  },
+};
+
 export const variants = {
   primary: buttonPrimary,
   outline: buttonOutline,
+  blackFriday: buttonBlackFriday,
 };

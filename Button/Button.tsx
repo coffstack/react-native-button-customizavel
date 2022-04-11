@@ -17,7 +17,7 @@ interface ButtonProps {
   iconName?: keyof typeof AntDesign.glyphMap;
   isLoading?: boolean;
   disabled?: boolean;
-  variant?: "primary" | "outline";
+  variant?: "primary" | "outline" | "blackFriday";
   style?: TouchableOpacityProps["style"];
 }
 
@@ -32,18 +32,16 @@ export function Button({
 }: ButtonProps) {
   const buttonVariant = variants[variant];
 
-  const buttonColors = disabled
-    ? buttonVariant.disabled
-    : buttonVariant.enabled;
+  const buttonStyle = disabled ? buttonVariant.disabled : buttonVariant.enabled;
 
   return (
     <TouchableOpacity
       disabled={isLoading || disabled}
       onPress={onPress}
-      style={[styles.container, buttonColors.button, style]}
+      style={[styles.container, buttonStyle.button, style]}
     >
       {isLoading ? (
-        <ActivityIndicator color="#FFF" />
+        <ActivityIndicator color={buttonStyle.icon.color} />
       ) : (
         <View style={styles.content}>
           {iconName && (
@@ -51,10 +49,10 @@ export function Button({
               style={{ marginRight: 12 }}
               name={iconName}
               size={24}
-              color={buttonColors.icon.color}
+              color={buttonStyle.icon.color}
             />
           )}
-          <Text style={[styles.title, { color: buttonColors.title.color }]}>
+          <Text style={[styles.title, { color: buttonStyle.title.color }]}>
             {title}
           </Text>
         </View>
@@ -69,13 +67,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 8,
-    height: 50,
+    height: 60,
   },
   content: {
     flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
-    color: "#FFF",
     fontSize: 20,
     fontWeight: "bold",
   },
